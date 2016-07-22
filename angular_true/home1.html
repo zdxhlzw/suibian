@@ -1,0 +1,19 @@
+念输掉比赛的卷发好看的事件回放来看公司间的风格
+<a href="#/detail">go fuck</a>
+<p>{{ceshi}}</p>
+<ul>
+	<li ng-repeat="cep in ceshi">{{cep.id}}人{{cep.name}}好</li>
+</ul>
+<table>
+	<tr>
+		<th>序号</th>
+		<th>名字</th>
+		<th>时间</th>
+	</tr>
+	<tr ng-repeat="cep in ceshi">
+		<td><a ng-href="#/detail/{{cep.id}}">{{cep.id}}</a></td>
+		<td>{{cep.name}}</td>
+		<td>{{cep.data}}</td>
+	</tr>
+</table>
+<a ng-href="#/add"><button>走你</button></a>

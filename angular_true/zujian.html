@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="asd">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div extend></div><div extend></div>
+		<div extend></div>
+		<div extend></div>
+	</body>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app=angular.module('asd',[])
+		app.directive('extend',[function(){
+			return {
+				restrict:'EA',
+				template:'<div>{{name}}</div>',
+				link:function(scope){
+					scope.name='fuck';
+				}
+			}
+		}])
+	</script>
+</html>

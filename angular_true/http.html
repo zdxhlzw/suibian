@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="angle">
+		<div ng-controller="asd">
+			<p>{{test}}</p>
+			<p>{{name}}</p>
+			<input type="" name="" id="" value="" ng-model="name"/>
+			<button ng-click="submit()">提交</button>
+		</div>
+	</body>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app=angular.module('angle',[])
+		app.controller('asd',['$scope','$http',function($scope,$http){
+			$scope.test="阿萨德";
+			$scope.name='123';
+			$scope.submit=function(){
+				$http.get('http://1.wsscatapi.applinzi.com/?format='+$scope.name).success(function(w){
+					$scope.name=w;
+				})
+			}
+		}])
+		app.service('asdasd',[function(){
+			return {};
+			console.log(1)
+		}])
+	</script>
+</html>

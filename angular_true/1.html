@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<body ng-app="asd" ng-controller="studentCtrl">
+		<div>asd{{text}}</div>
+		<!--{{text}}使用这样的可以让定义好的text属性渲染到页面上-->
+	</body>
+	<script type="text/javascript">
+	console.log(angular);
+	//module的服务就是一些我们用到的方法，他可以是一个对象；
+	
+	//第一步：就是要创建一个angular.module("asd",[])
+	//比如在<html>标签里面写ng-app我们就会在这一个标签里面让angular生效
+	//第二步:在你所需要的dom节点添加一个ng-app属性；属性值为名字；ng-app="asd"
+	//上述两部实际上是定义angular的作用范围，作用域。
+	//用angular对象的module方法来创建名字为asd的ng程序；
+		var wer=angular.module("asd",[]);
+	//第三部是写一个控制器，控制器方法controller（）需要传两个参数，一个是控制器名字，一个是控制器的回调方法
+	//$scope
+		wer.controller('studentCtrl',function($scope){
+			//var 用$scope定义的变量，方法，对象等等都只是在这个函数里面；
+			
+			$scope.text='123';
+		})
+	</script>
+</html>

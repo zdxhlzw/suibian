@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="large">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	
+	<body>
+		<p ng-view="">asdqwedszfaf</p>
+	</body>
+	<script type="text/javascript">
+		var app=angular.module('large',['ngRoute'])
+		app.config(function($routeProvider){
+			$routeProvider.when('/student',{
+				controller:'studentCtrl',
+				templateUrl: 'student.html'
+			}).when('/class',{
+				controller:'classCtrl',
+				templateUrl: 'class.html'
+			}).when('/tianjia',{
+				controller:'tianjiaCtrl',
+				templateUrl: 'tianjia.html'
+			})
+		})
+		
+		app.controller('studentCtrl',['$scope','$rootScope',function($scope,$rootScope){
+			$scope.name='李同学';
+			$rootScope.ceshi=kanobj
+		}])
+		
+		app.controller('classCtrl',['$scope','$rootScope',function($scope,$rootScope){
+			$scope.name='朱同学';
+			$scope.wer=$rootScope.ceshi
+			alert($scope.wer)
+		}])
+		
+		app.controller('tianjiaCtrl',['$scope',function($scope){
+			$scope.name='';
+			$scope.hobby='';
+			$scope.jia=function(){
+				var obj={};
+				obj.name=$scope.name;
+				obj.hobby=$scope.hobby;
+				obj.id=kanobj.length+1;
+				kanobj.push(obj)
+			}
+		}])
+		
+		var kanobj=[{
+			id:1,
+			name:"朱同学",
+			hobby:"ball"
+		},{
+			id:2,
+			name:"张同学",
+			hobby:"music"
+		},{
+			id:3,
+			name:"王同学",
+			hobby:"games"
+		}]
+	</script>
+</html>

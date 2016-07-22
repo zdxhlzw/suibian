@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="wtf">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div ng-view=""></div>
+	</body>
+	<script type="text/javascript">
+		var app = angular.module('wtf', ['ngRoute'])
+			//这是开始配置angular的路由
+		app.config(function($routeProvider) {
+			//when方法
+			$routeProvider.when('/home', {
+				//当路由更改为home的时候,显示home.html页面，并且由home
+				controller: 'homeCtrl',
+				templateUrl: 'home1.html'
+			}).when('/detail/:number', {
+				//当路由更改为home的时候,显示home.html页面，并且由home
+				controller: 'detailCtrl',
+				templateUrl: 'detail1.html'
+			}).when('/add', {
+				//当路由更改为home的时候,显示home.html页面，并且由home
+				controller: 'addCtrl',
+				templateUrl: 'add.html'
+			})
+		})
+
+		app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+			$rootScope.ceshi = xx;
+			alert(123);
+			
+		}])
+		
+		app.directive('directDemo',[function(){
+			return {
+				restrict:'E'//E:element;C:class;A:attritube;M:注释
+			}
+		}])
+
+		app.controller('detailCtrl', ['$scope','$routeParams', '$rootScope', function($scope,$routeParams, $rootScope) {
+			console.log(xx[$routeParams.number-1])
+			console.log($routeParams.number)
+			$scope.name = "123";
+			$scope.studentData=xx[$routeParams.number]
+		}])
+		
+		app.controller('addCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+			console.log($rootScope.ceshi)
+			alert(123);
+			$scope.name = "123";
+			$scope.name = "123";
+			$scope.wwtf;
+			$scope.tianjia=function(){
+				var obj={};
+				obj.id=xx.length;
+				obj.name=$scope.wwtf;
+				obj.data=new Date();
+				xx.push(obj)
+				alert(1)
+			}
+		}])
+		var xx = [{
+			name: 1,
+			id: 1,
+			data:new Date()
+		}, {
+			name: 2,
+			id: 2,
+			data:new Date()
+		}, {
+			name: 3,
+			id: 3,
+			data:new Date()
+		}]
+	</script>
+</html>

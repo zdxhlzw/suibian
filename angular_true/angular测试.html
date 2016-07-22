@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="fuck" ng-controller="fy">
+		<input type="" name="" id="" value="" />
+		<p>广东分行才<span class="{{isd?'ng-show':'ng-hide'}}">{{article|limitTo:10}}</span>asd</p>
+		<button ng-click="asdas()">点击</button>
+	</body>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var wtf=angular.module('fuck',[]);
+		wtf.controller('fy',function($scope){
+			$scope.ff='asdqwe';
+			$scope.gg='rty';
+			$scope.isd=true;
+			$scope.article = "limitTo过滤器用来截取数组或字符串，接收一个参数用来指定截取的长度。个人觉得这个filter有点鸡肋，首先只能从数组或字符串的开头进行截取，其次，js原生的函数就可以代替它了";
+			$scope.asdas=function(){
+				$scope.isd=!$scope.isd;
+			};
+		})
+	</script>
+</html>

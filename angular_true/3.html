@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="directive">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div expend="123"></div>
+		<div ng-controller="directiveCtrl">
+			<div class="title" ng-click="toggle">{{title}}</div>
+			<div class="body" ng-show="shoMe" ng-transclude></div>
+		</div>
+		
+	</body>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app=angular.module('directive',[])
+		app.directive('expend',[function(){
+			return {
+				restrict:'EA',//标签和属性的写法激活此组件
+				replace:true,
+				transclude:true,
+				scope:{
+					
+				},
+				template:'<div>这是我第一个组件</div>',
+				link:function(scope,element,attrs){
+					
+				}
+			}
+		}])
+		app.controller('directiveCtrl',['$scope',function($scope){
+			$scope.title='我的第一个组件';
+		}])
+	</script>
+</html>
