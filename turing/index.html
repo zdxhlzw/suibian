@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="asd" id="asd" value="" onkeyup="showit(this.value)"/>
+		</form>
+		<p>suggest:<span id='span'></span></p>
+	</body>
+	<script type="text/javascript">
+		function showit(str){
+			var xhr;
+			if(window.XMLHttpRequest){
+				xhr=new XMLHttpRequest();
+			}else(
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+			)
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					document.getElementById('span').innerHTML=xhr.responseText
+				}
+			}
+			xhr.open('GET',"suibian.php?input="+str,true);
+			xhr.send();
+		}
+	</script>
+</html>

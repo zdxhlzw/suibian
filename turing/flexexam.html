@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name=”viewport” content=”width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no” />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0
+		}
+		.artical{
+			width:100%;
+			height:50px;
+			margin-bottom:5px
+		}
+		.artical section{
+			float:left;
+			width:33.3%;
+			height:100%
+		}
+		.artical section:nth-of-type(1){
+			background:#AFEEEE
+		}
+		.artical section:nth-of-type(2){
+			background:#ADFF2F
+		}
+		.artical section:nth-of-type(3){
+			background:#DE898C
+		}
+		.artical2{
+			display:flex;
+			width:100%;
+			height:50px;
+		}
+		.artical2 section:nth-of-type(1){
+			background:#AFEEEE;
+			flex:1
+		}
+		.artical2 section:nth-of-type(2){
+			background:#ADFF2F;
+			flex:1
+		}
+		.artical2 section:nth-of-type(3){
+			background:#DE898C;
+			flex:1
+		}
+		
+		.artical3{
+			display:flex;
+			width:100%;
+			height:50px;
+			flex-direction:row-reverse;
+		}
+		.artical3 section:nth-of-type(1){
+			background:#AFEEEE;
+			flex:1
+		}
+		.artical3 section:nth-of-type(2){
+			background:#ADFF2F;
+			flex:1
+		}
+		.artical3 section:nth-of-type(3){
+			background:#DE898C;
+			flex:1
+		}
+		
+		.artical5{
+			display:flex;
+			width:100%;
+			height:50px;
+			flex-wrap:wrap-reverse
+		}
+		.artical5 section:nth-of-type(1){
+			background:#AFEEEE;
+			width:30%
+		}
+		.artical5 section:nth-of-type(2){
+			background:#ADFF2F;
+			width:40%
+		}
+		.artical5 section:nth-of-type(3){
+			background:#DE898C;
+			width:40%
+		}
+		
+	</style>
+	<body>
+		<!--传统响应式布局-->
+		<article class="artical"> 
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		<!--利用flex响应式布局-->
+		<article class="artical2"> 
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		<!--flex-direction上下左右排序-->
+		<article class="artical3"> 
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		<!--flex溢出换行-->
+		<article class="artical4"> 
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		<!--flex溢出换行 flwx-wrap:nowrap/wrap/wrap-reverse-->
+		<article class="artical5"> 
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+	</body>
+</html>

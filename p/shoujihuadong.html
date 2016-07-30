@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+	</head>
+	<body>123
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			(function(){
+				/*document.getElementsByTagName('body')[0].addEventListener('click',function(){
+					console.log("此时是点击事件");
+				});*/
+				document.getElementsByTagName('body')[0].addEventListener('touchstart',function(e){
+					console.log(e);
+					//点击滑动触发事件的时候会出现TouchEvent对象
+					//出现targetTouches对象里面有 pageX和pageY；
+					//鼠标的位置
+					//点击时鼠标所在位置x坐标
+					e.targetTouches[0].pageX
+					//点击时鼠标所在位置y坐标
+					e.targetTouches[0].pageY
+				});
+				document.getElementsByTagName('body')[0].addEventListener('touchend',function(e){
+					console.log(e);
+					//点击滑动触发事件的时候会出现TouchEvent对象
+					//出现changeTouches对象里面有 pageX和pageY；
+					//鼠标的位置
+					//点击完成后鼠标所在位置x坐标
+					e.changedTouches[0].pageX
+					//点击完成后鼠标所在位置y坐标
+					e.changedTouches[0].pageY
+					direction()
+				});
+				function direction(){
+					if(Xstart>Xend){
+						return'left'
+					}else if(Xstart<Xend){
+						return'right'
+					}else if(Xstart==Xend){
+						return '没动'
+					}
+				}
+				
+			})()	
+		}
+	</script>
+</html>

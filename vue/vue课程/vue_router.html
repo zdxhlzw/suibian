@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../vue-demo/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../vue-demo/vue-router.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<a href='#/demo1'>	demo1</a>
+			<a href='#/demo2'>	demo2</a>
+			<router-view></router-view>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//第一个组件
+		var demo1=Vue.extend({
+			template:'<p>123</p>',
+		})
+		//第二个组件
+		var demo2=Vue.extend({
+			template:'<p>456</p>',
+		})
+		
+		//实例一个路由对象
+		var App=Vue.extend({});
+		var router=new VueRouter();
+		
+		//用对象的map方法
+		router.map({
+			'/demo1':{
+				component:demo1,
+			},
+			'/demo2':{
+				component:demo2,
+			}
+		})
+		
+		router.start(App,'#app')
+	</script>
+</html>

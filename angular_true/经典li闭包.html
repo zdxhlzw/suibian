@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oLis = document.getElementsByTagName('li')
+		for(var i = 0; i < oLis.length; i++)　　 {
+			oLis[i].onclick = (function(i) {　　
+				return function()　　 {　　　　
+					alert("我是第" + (i + 1) + "个list");　　
+				}
+			}(i))　　
+		}
+	</script>
+
+</html>

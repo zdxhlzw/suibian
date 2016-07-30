@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='all'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-view=''>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app=angular.module('all',['ngRoute'])
+		app.config(function($routeProvider){
+			$routeProvider.when('/asd',{
+				controller: 'asdCtrl',
+				templateUrl: 'asd.html'
+			})
+		})
+		
+		app.controller('asdCtrl',['$scope','qwe',function($scope,qwe){
+			$scope.qwe=qwe.fuck;
+		}])
+		
+		app.directive('extend',[function(){
+			return {
+				restrict:'EA',
+				template:'<div>{{qwe}}</div>',
+				link:function(scope,qwe){
+					scope.name=1;
+					console.log(qwe.fuck)
+				}
+			}
+		}])
+		
+		app.service('qwe',[function(){
+			return {
+				fuck:'斯蒂芬森的萨芬'
+			};
+		}])
+	</script>
+</html>

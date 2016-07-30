@@ -1,0 +1,23 @@
+<header>
+	明日头条
+</header>
+<aside>
+	<p>
+		<span>推荐</span>
+		<span>视频</span>
+		<span>热点</span>
+		<span>社会</span>
+	</p>
+</aside>
+<article>
+	<section ng-repeat='new in news'>
+		<p>{{new.desc}}</p>
+		<img ng-src="{{new.imageurls[1].url}}"/>
+		<p>
+			<span>中国西藏网</span>
+			<span>评论：</span>
+			<span>18分钟前</span>
+		</p>
+	</section>
+</article>
+<div id="more" ng-click='moreload()'>查看更多...</div>

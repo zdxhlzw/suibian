@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app='wet'>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+
+		<title></title>
+		<style type="text/css">
+			#more{
+				margin-top:50px;
+				text-align: center;
+				font-size: 20px;
+				line-height: 30px;
+				font-weight: bold;
+				background:#eee;
+				height:30px
+			}
+		</style>
+	</head>
+	<script src="dist/js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="dist/js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="dist/css/base.css" />
+	<script src="dist/js/ionic.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div ng-view=""></div>
+		
+		
+	</body>
+	<script type="text/javascript">
+		var app=angular.module('wet',['ngRoute']);
+		app.config(function($routeProvider){
+			$routeProvider.when('/index',{
+				controller:'indexCtrl',
+				templateUrl:'view/index.html'
+			}).otherwise({
+				redirectTo:'/index'
+			})
+		})
+		app.controller('indexCtrl',['$scope','$http',function($scope,$http){
+			$scope.n=5
+			var a=function(){
+				$http.get('b.php',{
+					params:{
+						num:$scope.n,
+						page:'1'
+					}
+				}).success(function(data){
+					console.log(data.showapi_res_body.pagebean.contentlist);
+					$scope.news=data.showapi_res_body.pagebean.contentlist;
+				})			
+			}
+			a();
+			$scope.moreload=function(){
+				$scope.n++
+				a();
+			}
+		}])
+		
+	</script>
+</html>

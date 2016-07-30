@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../vue-demo/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<article id='demo'>{{skill}}</article>
+	</body>
+	<script type="text/javascript">
+		//获取id为demo的dom元素
+		var demo=new Vue({
+			//这个对象里面的第一个参数是写一个选择器，el:[selector];
+			//最好使用id选择器；
+			
+			el:'#demo',
+			//存的数据,相当于angular$scope绑定数据到view层，但相较于angular会更简化，不需要使用控制器
+			data:{
+				name:'asd',
+				skill:'chuibi',
+				g:'',
+				asd:''
+			}
+			
+		})
+		//两种方法赋值
+		//方法一 万用方法
+		demo.$data.fuck='qwe';
+		//方法二，但是此方法必须先在Vue里面先定义该属性
+		demo.g='1'
+		console.log(demo.$el)
+		console.log(demo.$data)
+		//方法三,但是此方法必须先在Vue里面先定义该属性
+		demo.$set('asd','’')
+	</script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html ng-app='all'>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+		<script src="angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="angular-route.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0
+		}
+		
+		body,
+		html {
+			height: 100%
+		}
+		
+		h1 {
+			text-align: center;
+			padding: 10px;
+			background-color: whitesmoke;
+			color: gray;
+		}
+		
+		#nav li {
+			float: left;
+			list-style: none;
+			text-align: center;
+			line-height: 25px;
+			color: #808080;
+			font-weight: bold;
+			flex: 1;
+		}
+		
+		#nav {
+			overflow: hidden;
+		}
+		
+		#nav ul {
+			overflow: hidden;
+			display: flex;
+			height: 25px;
+		}
+		
+		#more {
+			height: 40px;
+			font-size: 20px;
+			line-height: 40px;
+			font-weight: bold;
+			text-align: center;
+			color: rosybrown;
+			margin-top: 20px;
+			background: #F5F5F5;
+		}
+		a.active{
+			color:red
+		}
+	</style>
+
+	<body>
+		<h1>就是日 日新闻</h1>
+		<div id='nav'>
+			<ul>
+				<li>
+					<a ng-href="#/index" class="active">推荐</a>
+				</li>
+				<li>
+					<a ng-href="#/game">新闻</a>
+				</li>
+				<li>
+					<a ng-href="#/map">游戏</a>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-view="">
+
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var app = angular.module('all', ['ngRoute'])
+		app.config(function($routeProvider) {
+			$routeProvider.when('/index', {
+					controller: 'indexCtrl',
+					templateUrl: 'view/andex.html'
+				})
+				.when('/game', {
+					controller: 'gameCtrl',
+					templateUrl: 'view/game.html'
+				})
+				.when('/map', {
+					controller: 'mapCtrl',
+					templateUrl: 'view/map.html'
+				})
+		})
+		app.controller('indexCtrl', ['$scope', '$http', function($scope, $http) {
+			 $scope.x=5
+			$http.get('baiduApi2.php', {
+				params: {
+					num: $scope.x,
+					page: 1,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+			$scope.more=function(){
+				$scope.x+=5;
+				$http.get('baiduApi2.php', {
+				params: {
+					num: $scope.x,
+					page: 1,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+				
+			}
+			
+
+		}])
+		app.controller('gameCtrl', ['$scope', '$http', function($scope, $http) {
+			$scope.x=5
+			$http.get('baiduApi2.php', {
+				params: {
+					num: 5,
+					page: 2,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+			$scope.more=function(){
+				$scope.x+=5;
+				$http.get('baiduApi2.php', {
+				params: {
+					num: $scope.x,
+					page: 2,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+				
+			}
+		}])
+		app.controller('mapCtrl', ['$scope', '$http', function($scope, $http) {
+			$scope.x=5
+			$http.get('baiduApi2.php', {
+				params: {
+					num: $scope.x,
+					page: 3,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+			$scope.more=function(){
+				$scope.x+=5;
+				$http.get('baiduApi2.php', {
+				params: {
+					num: $scope.x,
+					page: 3,
+				}
+			}).success(function(res) {
+				$scope.news = res.newslist;
+				console.log($scope.news);
+			})
+				
+			}
+		}])
+		
+		var oa=document.getElementById('nav').getElementsByTagName('a')
+		for(var i=0;i<oa.length;i++){
+			oa[i].onclick=(function(i){
+				return function(){for(j=0;j<oa.length;j++){oa[j].className=''}oa[i].className='active'}
+			})(i)
+		}
+	</script>
+
+</html>

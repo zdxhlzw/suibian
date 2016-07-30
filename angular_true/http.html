@@ -15,9 +15,9 @@
 	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var app=angular.module('angle',[])
-		app.controller('asd',['$scope','$http',function($scope,$http){
+		app.controller('asd',['$scope','$http','asdasd',function($scope,$http,asdasd){
 			$scope.test="阿萨德";
-			$scope.name='123';
+			$scope.name=asdasd.asdf;
 			$scope.submit=function(){
 				$http.get('http://1.wsscatapi.applinzi.com/?format='+$scope.name).success(function(w){
 					$scope.name=w;
@@ -25,7 +25,9 @@
 			}
 		}])
 		app.service('asdasd',[function(){
-			return {};
+			return {
+				asdf:'的萨芬'
+			};
 			console.log(1)
 		}])
 	</script>

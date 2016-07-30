@@ -1,0 +1,38 @@
+	*{
+		margin:0;
+		padding:0
+	}
+	header{
+		background:red;
+		position: fixed;
+		width:100%;
+		text-align: center;
+		color: white;
+		height:50px;
+		line-height: 50px;
+		font-weight: bold;
+	}
+	aside{
+		padding-top:50px;
+		background: #f4f5f6;
+	}
+	aside p{
+		padding:10px
+	}
+	article section{
+		height:150px
+	}
+	article section p{
+		margin-top:10px;
+		margin-left:10px
+	}
+	article section img{
+		margin-top:10px;
+		margin-left:10px;
+		width:200px;
+		height:100px
+	}
+	article section p span{
+		font-size: 10px;
+		color:#3e3e3e
+	}

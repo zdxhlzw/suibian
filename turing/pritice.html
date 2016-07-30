@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="123" id="123" value="" onkeyup='huoqu(this.value)'/>
+		<p id="pt"></p>
+	</body>
+	<script type="text/javascript">
+		function huoqu(res){
+			if(XMLHttpRequest){
+				
+				var xhr=new XMLHttpRequest();
+			}else{
+				var xhr=new ActiveXObject('Microsoft.XMLHTTP')
+			}
+			alert(xhr)
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					document.getElementById('pt').innerHTML=xhr.responseText;
+					
+				}
+				
+			}
+			xhr.open('GET','wtf.php?what='+res,true)
+			xhr.send()
+		}
+	</script>
+</html>
